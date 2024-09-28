@@ -1,43 +1,45 @@
-# OnlyOffice 插件 - Tongyi Copilot
+# OnlyOffice Plugin - Tongyi Copilot
 
-此插件为OnlyOffice集成环境提供了额外的功能，通过接入通义千问 Copilot服务，用户可以在文档编辑过程中获得智能辅助，如生成内容、翻译、润色、注释代码等功能。
+This plugin provides additional features for the OnlyOffice integrated environment by connecting to the Tongyi Qianwen Copilot service, enabling users to receive intelligent assistance during document editing, such as content generation, translation, polishing, code annotation, and more.
 
-## 功能特性
+## Features
 
-- 自动生成内容
-- 文本翻译
-- 文本润色
-- 代码注释
-- 与AI助手对话
+- Content Generation
+- Text Translation
+- Text Polishing
+- Code Annotation
+- Chat with AI Assistant
 
-## 安装指南
+## Installation Guide
 
-### 开发者安装
+### Developer Installation
 
-1. 将插件源码下载到本地。
-2. 使用支持的OnlyOffice版本进行部署。
+1. Download the plugin source code to your local machine.
+2. Deploy using a supported version of OnlyOffice.
 
-### 用户端安装
+### User Installation
 
-用户需要通过OnlyOffice平台提供的方式安装此插件。
+Users need to install this plugin via the methods provided by the OnlyOffice platform.
 
-### 配置API Key
+### Configuring API Key
 
-访问阿里云平台获取通义千问apikey，配置环境变量
+Obtain the Tongyi Qianwen API key from Alibaba Cloud and configure it as an environment variable:
 https://help.aliyun.com/zh/model-studio/developer-reference/configure-api-key-through-environment-variables?spm=a2c4g.11186623.0.0.242d212blww76j#e4cd73d544i3r
 
+## Usage
 
-使用方法
-打开OnlyOffice文档编辑器。
-选择相应的功能按钮（生成内容、翻译、润色、注释代码、与AI对话）。
-在弹出的界面中输入所需处理的内容。
-点击执行按钮完成操作。
-注意事项
-请保持网络连接畅通以保证与Copilot服务的正常通信。
+1. Open the OnlyOffice document editor.
+2. Select the desired feature button (Generate Content, Translate, Polish, Annotate Code, Chat with AI).
+3. Enter the content you wish to process in the pop-up interface.
+4. Click the execute button to complete the operation.
 
-联系我们
-如有任何问题或建议，请通过以下方式联系我们：
+## Notes
 
-Email: yuu13774269151@163.com
-GitHub Issues: https://github.com/Nothing1437/onlyoffice-plugin-tongyi-copilot/issues
+Ensure that your network connection is stable to maintain normal communication with the Copilot service.
 
+## Contact Us
+
+If you have any questions or suggestions, please contact us through the following methods:
+
+- Email: yuu13774269151@163.com
+- GitHub Issues: https://github.com/Nothing1437/onlyoffice-plugin-tongyi-copilot/issues
