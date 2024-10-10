@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tongyi</title>
+    <script type="text/javascript" src="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins.js"></script>
+    <script type="text/javascript" src="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins-ui.js"></script>
+    <link rel="stylesheet" href="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins.css">
+    <script src="https://Nothing1437.github.io/jsrsasign/jsrsasign-latest-all-min.js"></script>
+    <script type="text/javascript" src="plugin.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            background-color: #E8EAF6; /* 辅助色 */
+        }
+
+        .container {
+            width: 20%; /* 左侧五分之一宽度 */
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .input-area {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .input-area textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer button {
+            padding: 10px 20px;
+            background-color: #3F51B5; /* 主题色 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .footer button:hover {
+            background-color: #303F9F; /* 深一点的主题色 */
+        }
+
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header" id="output-area">
+            <!-- 用于展示通义返回的消息 -->
+        </div>
+        <div class="input-area">
+            <textarea id="input-area" placeholder="输入关键词或代码..."></textarea>
+        </div>
+        <div class="footer">
+            <button id="generate-content">生成内容</button>
+            <button id="translate-text">翻译</button>
+            <button id="polish-text">润色</button>
+            <button id="annotate-code">注释代码</button>
+            <button id="chat-with-ai">与通义对话</button>
+        </div>
+    </div>
+
+</body>
+</html>
