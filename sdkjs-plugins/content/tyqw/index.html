@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tongyi</title>
+    <script type="text/javascript" src="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins.js"></script>
+    <script type="text/javascript" src="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins-ui.js"></script>
+    <link rel="stylesheet" href="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins.css">
+    <script src="https://Nothing1437.github.io/jsrsasign/jsrsasign-latest-all-min.js"></script>
+    <script type="text/javascript" src="script/plugin.js"></script> <!-- 使用相对路径 -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            background-color: #E8EAF6; /* 辅助色 */
+        }
+
+        .container {
+            width: 100%; /* 左侧五分之一宽度 */
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .input-area {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .input-area textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer button {
+            padding: 10px 20px;
+            background-color: #3F51B5; /* 主题色 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .footer button:hover {
+            background-color: #303F9F; /* 深一点的主题色 */
+        }
+
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header" id="output-area">
+            <!-- 用于展示通义返回的消息 -->
+        </div>
+        <div class="input-area">
+            <textarea id="input-area" placeholder="输入关键词或代码..."></textarea>
+        </div>
+        <div class="footer">
+            <button id="generate-content">生成内容</button>
+            <button id="translate-text">翻译</button>
+            <button id="polish-text">润色</button>
+            <button id="annotate-code">注释代码</button>
+            <button id="chat-with-ai">与通义对话</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('generate-content').addEventListener('click', generateContent);
+            document.getElementById('translate-text').addEventListener('click', translateText);
+            document.getElementById('polish-text').addEventListener('click', polishText);
+            document.getElementById('annotate-code').addEventListener('click', annotateCode);
+            document.getElementById('chat-with-ai').addEventListener('click', chatWithAI);
+        });
+
+        function generateContent() {
+            var inputArea = document.getElementById('input-area');
+            var outputArea = document.getElementById('output-area');
+            var inputText = inputArea.value.trim();
+
+            if (!inputText) {
+                alert('请输入要生成内容的关键词！');
+                return;
+            }
+
+            fetch('/ask_tongyi', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: `请根据以下关键词生成相关内容: ${inputText}` })
+            })
+            .then(response => response.json())
+            .then(data => {
+                outputArea.innerText = data.response;
+            })
+            .catch(error => {
+                console.error("Error calling Tongyi API:", error);
+                outputArea.innerText = "Error: 无法获取回复";
+            });
+        }
+
+        function translateText() {
+            var inputArea = document.getElementById('input-area');
+            var outputArea = document.getElementById('output-area');
+            var inputText = inputArea.value.trim();
+
+            if (!inputText) {
+                alert('请选择要翻译的文本！');
+                return;
+            }
+
+            fetch('/ask_tongyi', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: `请将以下文本翻译成英文: ${inputText}` })
+            })
+            .then(response => response.json())
+            .then(data => {
+                outputArea.innerText = data.response;
+            })
+            .catch(error => {
+                console.error("Error calling Tongyi API:", error);
+                outputArea.innerText = "Error: 无法获取回复";
+            });
+        }
+
+        function polishText() {
+            var inputArea = document.getElementById('input-area');
+            var outputArea = document.getElementById('output-area');
+            var inputText = inputArea.value.trim();
+
+            if (!inputText) {
+                alert('请选择要润色的文本！');
+                return;
+            }
+
+            fetch('/ask_tongyi', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: `请对以下文本进行优化润色: ${inputText}` })
+            })
+            .then(response => response.json())
+            .then(data => {
+                outputArea.innerText = data.response;
+            })
+            .catch(error => {
+                console.error("Error calling Tongyi API:", error);
+                outputArea.innerText = "Error: 无法获取回复";
+            });
+        }
+
+        function annotateCode() {
+            var inputArea = document.getElementById('input-area');
+            var outputArea = document.getElementById('output-area');
+            var inputText = inputArea.value.trim();
+
+            if (!inputText) {
+                alert('请输入要添加注释的代码！');
+                return;
+            }
+
+            fetch('/ask_tongyi', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: `请为以下代码添加注释，并生成描述性文字: ${inputText}` })
+            })
+            .then(response => response.json())
+            .then(data => {
+                outputArea.innerText = data.response;
+            })
+            .catch(error => {
+                console.error("Error calling Tongyi API:", error);
+                outputArea.innerText = "Error: 无法获取回复";
+            });
+        }
+
+        function chatWithAI() {
+            var inputArea = document.getElementById('input-area');
+            var outputArea = document.getElementById('output-area');
+            var inputText = inputArea.value.trim();
+
+            if (!inputText) {
+                alert('请输入要发送的消息！');
+                return;
+            }
+
+            fetch('/ask_tongyi', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: `用户: ${inputText}` })
+            })
+            .then(response => response.json())
+            .then(data => {
+                outputArea.innerText = data.response;
+            })
+            .catch(error => {
+                console.error("Error calling Tongyi API:", error);
+                outputArea.innerText = "Error: 无法获取回复";
+            });
+        }
+    </script>
+
+</body>
+</html>

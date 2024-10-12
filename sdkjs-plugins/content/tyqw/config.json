@@ -1,0 +1,96 @@
+{
+    "name": "Tongyi Qianwen Copilot",
+    "nameLocale": {
+        "zh": "通义千问 Copilot",
+        "de": "Tongyi Qianwen Copilot",
+        "ru": "Tongyi Qianwen Copilot",
+        "fr": "Tongyi Qianwen Copilot",
+        "pt-BR": "Tongyi Qianwen Copilot",
+        "es": "Tongyi Qianwen Copilot"
+    },
+    "guid": "asc.{92bcba3f-e587-470e-9d71-b7b401316ab7}",
+    "help": "基于通义大数据模型的多功能助手",
+    "version": "1.0.0",
+    "group": {
+        "name": "助手功能",
+        "rank": 0
+    },
+    "variations": [
+        {
+            "description": "多功能助手插件",
+            "buttons": [
+                {
+                    "text": "生成内容",
+                    "primary": true
+                },
+                {
+                    "text": "翻译",
+                    "primary": false
+                },
+                {
+                    "text": "润色",
+                    "primary": false
+                },
+                {
+                    "text": "注释代码",
+                    "primary": false
+                },
+                {
+                    "text": "与通义对话",
+                    "primary": false
+                }
+            ],
+            "url": "index.html",
+            "icons": [
+                "resources/icon.png"
+            ],
+            "isViewer": true,
+            "EditorsSupport": [
+                "word"
+            ],
+            "isVisual": true,
+            "isModal": true,
+            "isInsideMode": true,
+            "initDataType": "none",
+            "initData": "",
+            "isUpdateOleOnResize": true,
+            "buttons": [],
+            "events": [
+                "onContextMenuShow",
+                "onContextMenuClick"
+            ]
+        },
+
+        {
+            "description": "setting",
+            "url": "index_setting.html",
+            "isViewer": false,
+            "EditorsSupport": [
+                "word"
+            ],
+            "isVisual": true,
+            "isModal": true,
+            "isInsideMode": false,
+            "initDataType": "none",
+            "initData": "",
+            "isUpdateOleOnResize": true,
+            "buttons": [
+                {
+                    "text": "Ok",
+                    "textLocale": {
+                        "zh": "确定",
+                        "de": "Ok",
+                        "ru": "Ok",
+                        "fr": "Ok",
+                        "es": "Ok"
+                    },
+                    "primary": true
+                }
+            ],
+            "size": [
+                392,
+                147
+            ]
+        }
+    ]
+}
