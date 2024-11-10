@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tongyi</title>
+    <script type="text/javascript" src="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins.js"></script>
+    <script type="text/javascript" src="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins-ui.js"></script>
+    <link rel="stylesheet" href="https://onlyoffice.github.io/sdkjs-plugins/v1/plugins.css">
+    <script src="https://Nothing1437.github.io/jsrsasign/jsrsasign-latest-all-min.js"></script>
+    <script type="text/javascript" src="script/plugin2.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #E8EAF6;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ccc;
+            color: black;
+        }
+
+        .input-area {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer button {
+            padding: 10px 20px;
+            background-color: #3F51B5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .footer button:hover {
+            background-color: #303F9F;
+        }
+
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+
+        .settings-link {
+            margin: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header" id="output-area">
+            <!-- 用于展示通义返回的消息 -->
+        </div>
+        <div class="input-area">
+            <textarea id="input-area" placeholder="输入关键词或代码..."></textarea>
+        </div>
+        <div class="footer">
+            <button id="generate-content">生成内容</button>
+            <button id="translate-text">翻译</button>
+            <button id="polish-text">润色</button>
+            <button id="annotate-code">注释代码</button>
+            <button id="chat-with-ai">与通义对话</button>
+            <div class="settings-link">
+                <a href="setting.html">设置 API Key 和 Base URL</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 检查是否已设置 baseurl 和 apikey
+            let base_url = localStorage.getItem('base_url');
+            let api_key = localStorage.getItem('api_key');
+            if (!base_url || !api_key) {
+                alert("请先设置Base URL和API Key！");
+                window.location.href = 'setting.html'; // 如果没有配置，则返回设置页面
+            }
+
+            document.getElementById('generate-content').addEventListener('click', generateContent);
+            document.getElementById('translate-text').addEventListener('click', translateText);
+            document.getElementById('polish-text').addEventListener('click', polishText);
+            document.getElementById('annotate-code').addEventListener('click', annotateCode);
+            document.getElementById('chat-with-ai').addEventListener('click', chatWithAI);
+        });
+
+        // 生成内容等函数...
+
+    </script>
+
+</body>
+</html>

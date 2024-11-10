@@ -1,0 +1,20 @@
+{
+    "settings": "设置",
+    "setApiKeyFirst": "请先设置API Key",
+    "tongyiQianwenCopilot": "通义千问 Copilot",
+    "generateContent": "生成内容",
+    "translate": "翻译",
+    "polishText": "润色",
+    "annotateCode": "注释代码",
+    "chatWithAI": "与通义对话",
+    "apiKeyPlaceholder": "请输入API Key",
+    "inputPlaceholder": "输入关键词或代码...",
+    "noTextSelectedAlert": "请选择要处理的文本！",
+    "noInputProvidedAlert": "请输入要处理的内容！",
+    "ok": "确定",
+    "generatePrompt": "请根据以下关键词生成相关内容:",
+    "translatePrompt": "请将以下文本翻译成英文:",
+    "polishPrompt": "请对以下文本进行优化润色:",
+    "annotatePrompt": "请为以下代码添加注释，并生成描述性文字:",
+    "chatPrompt": "用户:"
+}
